@@ -1,6 +1,47 @@
 import React, { Component } from 'react'
 
 export class SignUpPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            firstName: "",
+			secondName: "",
+			password: "",
+            confirmPassword: "",
+			age: "",
+			gender: "",
+			mobile: "",
+			email: "",
+			role: "",
+			profileImage: null,
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFileChange = this.handleFileChange.bind(this);
+    }
+
+    handleChange(e) {
+        const { id, value } = e.target;
+        this.setState({
+            [id]: value
+        })
+    }
+
+    handleFileChange(e) {
+        const { files } = e.target;
+        this.setState({
+            profileImage: files[0] || null
+        })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        console.log(this.state);
+    }
+
     render() {
         return (
             <div class="container-scroller">
@@ -16,26 +57,26 @@ export class SignUpPage extends Component {
                                     <h6 class="font-weight-light text-center">Signing up is easy. It only takes a few steps</h6>
                                     <form class="pt-3">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-lg" id="firstName" placeholder="First name" />
+                                            <input type="text" class="form-control form-control-lg" id="firstName" placeholder="First name" onChange={this.handleChange} />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-lg" id="lastName" placeholder="Last Name" />
+                                            <input type="text" class="form-control form-control-lg" id="secondName" placeholder="Last Name" onChange={this.handleChange} />
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-lg" id="email" placeholder="Email" />
+                                            <input type="email" class="form-control form-control-lg" id="email" placeholder="Email" onChange={this.handleChange} />
                                         </div>
                                         <div class="form-group">
-                                            <input type="number" class="form-control form-control-lg" id="mobile" placeholder="Mobile" />
+                                            <input type="number" class="form-control form-control-lg" id="mobile" placeholder="Mobile" onChange={this.handleChange} />
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" id="gender">
+                                            <select class="form-control" id="gender" onChange={this.handleChange} >
                                                 <option>Gender</option>
                                                 <option>Male</option>
                                                 <option>Female</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control form-control-lg" id="role">
+                                            <select class="form-control form-control-lg" id="role" onChange={this.handleChange} >
                                                 <option>Role</option>
                                                 <option>Admin</option>
                                                 <option>Moderator</option>
@@ -43,20 +84,14 @@ export class SignUpPage extends Component {
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="file" name="img[]" class="file-upload-default" />
-                                            <div class="input-group col-xs-12">
-                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" />
-                                                <span class="input-group-append">
-                                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                                </span>
-                                            </div>
+                                        <input class="form-control" type="file" id="profileImage" onChange={this.handleFileChange} />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" />
+                                            <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" onChange={this.handleChange} />
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-lg" id="confirmPassword"
-                                                placeholder="Confirm Password" />
+                                                placeholder="Confirm Password" onChange={this.handleChange} />
                                         </div>
                                         <div class="mb-4">
                                             <div class="form-check">
@@ -68,7 +103,7 @@ export class SignUpPage extends Component {
                                         </div>
                                         <div class="mt-3">
                                             <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                                href="../../index.html">SIGN UP</a>
+                                                href="../../index.html" onClick={this.handleSubmit}>SIGN UP</a>
                                         </div>
                                         <div class="text-center mt-4 font-weight-light">
                                             Already have an account? <a href="login.html" class="text-primary">Login</a>
