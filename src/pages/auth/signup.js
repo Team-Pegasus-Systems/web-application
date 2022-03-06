@@ -51,7 +51,7 @@ export class SignUpPage extends Component {
                             <div class="col-lg-4 mx-auto">
                                 <div class="auth-form-light text-left py-5 px-4 px-sm-5 ">
                                     <div class="brand-logo text-center">
-                                        <img src="../../images/logo.svg" style={{ width: 200 }} alt="logo" />
+                                        <img src="../../assets/images/logo.svg" style={{ width: 200 }} alt="logo" />
                                     </div>
                                     <h4 class="text-center">New here?</h4>
                                     <h6 class="font-weight-light text-center">Signing up is easy. It only takes a few steps</h6>

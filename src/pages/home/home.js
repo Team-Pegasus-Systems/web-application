@@ -4,10 +4,9 @@ export class HomePage extends Component {
     render() {
         return (
             <div class="container-scroller">
-                {/* <!-- partial:partials/_navbar.html --> */}
                 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="../../assets/images/logo.svg" class="mr-2" alt="logo" /></a>
+                        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="../../assets/images/logo.svg" alt="logo" /></a>
                         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
                     </div>
                     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -101,9 +100,7 @@ export class HomePage extends Component {
                         </button>
                     </div>
                 </nav>
-                {/* <!-- partial --> */}
                 <div class="container-fluid page-body-wrapper">
-                    {/* <!-- partial:partials/_settings-panel.html --> */}
                     <div class="theme-setting-wrapper">
                         <div id="settings-trigger"><i class="ti-settings"></i></div>
                         <div id="theme-settings" class="settings-panel">
@@ -209,7 +206,6 @@ export class HomePage extends Component {
                                     <p class="text-gray mb-0 ">Call Sarah Graves</p>
                                 </div>
                             </div>
-                            {/* <!-- To do section tab ends --> */}
                             <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
                                 <div class="d-flex align-items-center justify-content-between border-bottom">
                                     <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
@@ -269,11 +265,8 @@ export class HomePage extends Component {
                                     </li>
                                 </ul>
                             </div>
-                            {/* <!-- chat tab ends --> */}
                         </div>
                     </div>
-                    {/* <!-- partial --> */}
-                    {/* <!-- partial:partials/_sidebar.html --> */}
                     <nav class="sidebar sidebar-offcanvas" id="sidebar">
                         <ul class="nav">
                             <li class="nav-item">
@@ -282,7 +275,7 @@ export class HomePage extends Component {
                                     <span class="menu-title">Dashboard</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {/* <li class="nav-item">
                                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                                     <i class="icon-layout menu-icon"></i>
                                     <span class="menu-title">UI Elements</span>
@@ -375,10 +368,9 @@ export class HomePage extends Component {
                                     <i class="icon-paper menu-icon"></i>
                                     <span class="menu-title">Documentation</span>
                                 </a>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
-                    {/* <!-- partial --> */}
                     <div class="main-panel">
                         <div class="content-wrapper">
                             <div class="row">
@@ -995,7 +987,7 @@ export class HomePage extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            {/* <div class="row">
                                 <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
@@ -1022,27 +1014,70 @@ export class HomePage extends Component {
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
-                        {/* <!-- content-wrapper ends --> */}
-                        {/* <!-- partial:partials/_footer.html --> */}
-                        <footer class="footer">
-                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-                            </div>
-                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
-                            </div>
+                        <footer class="bg-white text-center text-lg-start bg-light text-muted">
+                            <section>
+                                <div class="container text-center text-md-start mt-5">
+                                    <div class="row mt-3">
+                                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                            <h6 class="text-uppercase fw-bold mb-4">Pegasus Systems</h6>
+                                            <p>
+                                                Here you can manage the tracking of bugs in your system and chat in a intra company network
+                                            </p>
+                                        </div>
+                                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                            <h6 class="text-uppercase fw-bold mb-4">
+                                                Products
+                                            </h6>
+                                            <p>
+                                                <a href="#!" class="text-reset">Angular</a>
+                                            </p>
+                                            <p>
+                                                <a href="#!" class="text-reset">React</a>
+                                            </p>
+                                            <p>
+                                                <a href="#!" class="text-reset">Vue</a>
+                                            </p>
+                                            <p>
+                                                <a href="#!" class="text-reset">Laravel</a>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                                            <h6 class="text-uppercase fw-bold mb-4">
+                                                Useful links
+                                            </h6>
+                                            <p>
+                                                <a href="#!" class="text-reset">Pricing</a>
+                                            </p>
+                                            <p>
+                                                <a href="#!" class="text-reset">Settings</a>
+                                            </p>
+                                            <p>
+                                                <a href="#!" class="text-reset">Orders</a>
+                                            </p>
+                                            <p>
+                                                <a href="#!" class="text-reset">Help</a>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                            <h6 class="text-uppercase fw-bold mb-4">
+                                                Contact
+                                            </h6>
+                                            <p> No, Street, City</p>
+                                            <p>
+                                                info@example.com
+                                            </p>
+                                            <p>+ 94 77 31 23 548</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
                         </footer>
-                        {/* <!-- partial --> */}
                     </div>
-                    {/* <!-- main-panel ends --> */}
                 </div>
-                {/* <!-- page-body-wrapper ends --> */}
             </div >
         )
     }

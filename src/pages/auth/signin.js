@@ -4,7 +4,6 @@ export class SignInPage
     extends Component {
     render() {
         return (
-
             <div class="container-scroller">
                 <div class="container-fluid page-body-wrapper full-page-wrapper">
                     <div class="content-wrapper d-flex align-items-center auth px-0 ">
@@ -12,7 +11,7 @@ export class SignInPage
                             <div class="col-lg-4 mx-auto">
                                 <div class="auth-form-light text-left py-5 px-4 px-sm-5 text-center">
                                     <div class="brand-logo ">
-                                        <img src="../../images/logo.svg" alt="logo" style={{ width: 200 }} />
+                                        <img src="../../assets/images/logo.svg" style={{ width: 200 }} alt="logo" />
                                     </div>
                                     <h4>Hello! let's get started</h4>
                                     <h6 class="font-weight-light">Sign in to continue.</h6>
