@@ -4,51 +4,44 @@ import axios from 'axios';
 export class SignInPage extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			password: "",
 			email: ""
 		};
-
 		this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-
-    handleChange(e) {
-        const { id, value } = e.target;
-        this.setState({
-            [id]: value
-        })
-    }
-
-    handleSubmit(e) {
-        const {
+	handleChange(e) {
+		const { id, value } = e.target;
+		this.setState({
+			[id]: value
+		})
+	}
+	handleSubmit(e) {
+		const {
 			password,
 			email
-        } = this.state;
-
-        if (password && email) {
-            axios.post("http://localhost:5000/api/user/signIn", {
-                email: email,
-                password: password
-            })
-            .then(res => {
-                if (res.data.status == "success") {
-                    console.log(res.data.token)
-
-                    // localStorage.setItem("x-falcon-token", res.data.token)
-                } else {
-                    alert(res.data.result);
-                }
-            })
-            .catch(err => {
-                alert("An error occured while creating the account");
-            })
-        } else {
-            alert("Fill the empty fields to proceed");
-        }
-    }
-
+		} = this.state;
+		if (password && email) {
+			axios.post("http://localhost:5000/api/user/signIn", {
+				email: email,
+				password: password
+			})
+				.then(res => {
+					if (res.data.status == "success") {
+						console.log(res.data.token)
+						// localStorage.setItem("x-falcon-token", res.data.token)
+					} else {
+						alert(res.data.result);
+					}
+				})
+				.catch(err => {
+					alert("An error occured while creating the account");
+				})
+		} else {
+			alert("Fill the empty fields to proceed");
+		}
+	}
 	render() {
 		return (
 			<div class="container-scroller">
@@ -73,7 +66,7 @@ export class SignInPage extends Component {
 												class="form-control form-control-lg"
 												id="email"
 												placeholder="Username"
-                                                onChange={this.handleChange}
+												onChange={this.handleChange}
 											/>
 										</div>
 										<div class="form-group">
@@ -82,13 +75,13 @@ export class SignInPage extends Component {
 												class="form-control form-control-lg"
 												id="password"
 												placeholder="Password"
-                                                onChange={this.handleChange}
+												onChange={this.handleChange}
 											/>
 										</div>
 										<div class="mt-3">
 											<a
 												class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                                onClick={this.handleSubmit}
+												onClick={this.handleSubmit}
 											>
 												SIGN IN
 											</a>

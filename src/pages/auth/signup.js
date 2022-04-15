@@ -4,65 +4,56 @@ import axios from 'axios';
 export class SignUpPage extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             firstName: "",
-			secondName: "",
-			password: "",
+            secondName: "",
+            password: "",
             confirmPassword: "",
-			age: "",
-			gender: "",
-			mobile: "",
-			email: "",
-			role: "",
-			profileImage: null,
+            age: "",
+            gender: "",
+            mobile: "",
+            email: "",
+            role: "",
+            profileImage: null,
             conditions: false
         }
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
     }
-
     handleChange(e) {
         const { id, value } = e.target;
         this.setState({
             [id]: value
         })
     }
-
     handleFileChange(e) {
         const { files } = e.target;
         this.setState({
             profileImage: files[0] || null
         })
     }
-
     handleSubmit(e) {
         e.preventDefault();
-
         const {
             firstName,
-			secondName,
-			password,
+            secondName,
+            password,
             confirmPassword,
-			age,
-			gender,
-			mobile,
-			email,
-			role,
-			profileImage,
+            age,
+            gender,
+            mobile,
+            email,
+            role,
+            profileImage,
         } = this.state;
-
         if (!this.state.conditions) {
             alert("Please agree with our terms and conditions");
             return;
         }
-        
-        if (firstName && secondName && password && confirmPassword && age  && gender && mobile && email && role && profileImage ) {
+        if (firstName && secondName && password && confirmPassword && age && gender && mobile && email && role && profileImage) {
             // && password & confirmPassword && age && gender && mobile && email && role && profileImage
             if (confirmPassword == password) {
-
                 let form = new FormData();
                 form.append("firstName", firstName);
                 form.append("secondName", secondName);
@@ -73,35 +64,30 @@ export class SignUpPage extends Component {
                 form.append("email", email);
                 form.append("role", role);
                 form.append("image", profileImage);
-
-                axios.post("http://localhost:5000/api/user/availability", {email: email})
-                .then(res => {
-                    if (res.data.status == "success") {
-                        
-                        axios.post("http://localhost:5000/api/user", form)
-                        .then(res => {
-                            if (res.data.status == "success") {
-                                console.log("success", res.data.token)
-
-                                // localStorage.setItem("x-falcon-token", res.data.token)
-
-                                // successful scenario
-                            } else {
-                                console.log("unsuccessful", res.data.status)
-
-                                //  unsuccessful scenario
-                            }
-                        })
-                        .catch(err => {
-                            alert("An error occured while creating the account");
-                        })
-                    } else {
-                        alert(res.data.result);
-                    }
-                })
-                .catch(err => {
-                    alert("An error occured while creating the account");
-                })
+                axios.post("http://localhost:5000/api/user/availability", { email: email })
+                    .then(res => {
+                        if (res.data.status == "success") {
+                            axios.post("http://localhost:5000/api/user", form)
+                                .then(res => {
+                                    if (res.data.status == "success") {
+                                        console.log("success", res.data.token)
+                                        // localStorage.setItem("x-falcon-token", res.data.token)
+                                        // successful scenario
+                                    } else {
+                                        console.log("unsuccessful", res.data.status)
+                                        //  unsuccessful scenario
+                                    }
+                                })
+                                .catch(err => {
+                                    alert("An error occured while creating the account");
+                                })
+                        } else {
+                            alert(res.data.result);
+                        }
+                    })
+                    .catch(err => {
+                        alert("An error occured while creating the account");
+                    })
             } else {
                 alert("Password is not matching with the confirm password! Please re-enter the password confirmation")
             }
@@ -109,7 +95,6 @@ export class SignUpPage extends Component {
             alert("Fill the empty fields to proceed");
         }
     }
-
     render() {
         return (
             <div class="container-scroller">
@@ -155,7 +140,7 @@ export class SignUpPage extends Component {
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                        <input class="form-control" type="file" id="profileImage" onChange={this.handleFileChange} />
+                                            <input class="form-control" type="file" id="profileImage" onChange={this.handleFileChange} />
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" onChange={this.handleChange} />
@@ -167,7 +152,7 @@ export class SignUpPage extends Component {
                                         <div class="mb-4">
                                             <div class="form-check">
                                                 <label class="form-check-label text-muted">
-                                                    <input type="checkbox" class="form-check-input" id="conditions" onChange={this.handleChange}/>
+                                                    <input type="checkbox" class="form-check-input" id="conditions" onChange={this.handleChange} />
                                                     I agree to all Terms & Conditions
                                                 </label>
                                             </div>
