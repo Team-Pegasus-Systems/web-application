@@ -12,17 +12,22 @@ import CreateProject from '../pages/projects/createProject';
 import UpdateProject from '../pages/projects/updateProject';
 import ProjectList from '../pages/projects/projectList';
 import ViewProject from '../pages/projects/viewProject';
+import ViewProfile from '../pages/auth/viewProfile';
+import UpdateProfile from '../pages/auth/updateProfile';
 
 export class PageRoutes extends Component {
     render() {
         return (
             <Router>
                 <Routes>
-                    {/* Auth Routes */}
+                    {/* Dashboard Routes */}
                     <Route path='/' element={<HomePage />} />
                     <Route path='/dashboard' element={<Dashboard />} />
+                    {/* Auth Routes */}
                     <Route path='/signin' element={<SignInPage />} />
                     <Route path='/signup' element={<SignUpPage />} />
+                    <Route path='/profile' element={<ViewProfile />} />
+                    <Route path='/updateProfile' element={<UpdateProfile />} />
                     {/* Bug Management Routes */}
                     <Route path='/createBug' element={<CreateBug />} />
                     <Route path='/updateBug' element={<UpdateBug />} />
